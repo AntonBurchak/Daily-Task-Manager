@@ -562,3 +562,6 @@ p.success {
 .btn_ok {
     margin-right: 4px
 }
+.body-finished .viewCard .viewCard__buttons , .body-wasted .viewCard .viewCard__buttons , .body-removed .viewCard .viewCard__buttons {
+    display: none;
+}
