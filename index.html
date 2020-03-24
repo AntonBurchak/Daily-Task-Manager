@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+    <link rel="manifest" href="fav/site.webmanifest">
+    <link rel="mask-icon" href="fav/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Daily task manager</title>
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <h1>Daily task manager</h1>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li><a href="" class="add">Добавить</a></li>
+                    <li><a href="feed/finished/" class="finished">Завершенные</a><span>0</span></li>
+                    <li><a href="feed/wasted/" class="wasted">Просроченые</a><span>0</span></li>
+                    <li><a href="feed/removed/" class="removed">Удаленные</a><span>0</span></li>
+                </ul>
+                <div class="displayTipe"></div>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="wrapper">
+            <div class="main__content">
+                <div class="loader">
+                    <img src="https://media1.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif" alt="" width="100">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="add-card">
+        <div class="wrapper">
+            <h2>Создание новой задачи</h2>
+            <form action="">
+                <input type="text" name="name" placeholder="Название карточки" required>
+                <div class="textarea">
+                    <div class="textarea__buttons">
+                        <ul>
+                            <li><button data-type="heading">H</button></li>
+                            <li><button data-type="bold">B</button></li>
+                            <li><button data-type="italic"><i>I</i></button></li>
+                            <li><button data-type="underline"><ins>U</ins></button></li>
+                            <li><button data-type="del"><del>S</del></button></li>
+                            <li><button data-type="qoute"><img src="images/quote.svg" alt=""></button></li>
+                            <li><button data-type="link"><img src="images/broken-link.svg" alt=""></button></li>
+                            <li><button data-type="list"><img src="images/list.svg" alt=""></button></li>
+                            <li><button data-type="image"><img src="images/photo.svg" alt=""></button></li>
+                        </ul>
+                    </div>
+                    <textarea name="text" placeholder="Текст карточки" id="textFormatter"></textarea>
+                </div>
+               
+                <div class="group">
+                    <p>Deadline</p>
+                    <input name="date" type="date" placeholder="Текст карточки">
+                </div>       
+                    
+                <button id="createCard">Создать карточку</button>
+                <p class="success">Вы успешно добавили карточку!</p>
+            </form>
+        </div>
+        
+        <div class="close"></div>
+    </div>
+
+    <div class="edit-card">
+        <div class="wrapper">
+            <h2>Редактирование задачи</h2>
+            <form action="">
+                <input type="text" name="name" placeholder="Название карточки" required class="edit-card-name">
+                <div class="textarea">
+                    <div class="textarea__buttons">
+                        <ul>
+                            <li><button data-type="heading">H</button></li>
+                            <li><button data-type="bold">B</button></li>
+                            <li><button data-type="italic"><i>I</i></button></li>
+                            <li><button data-type="underline"><ins>U</ins></button></li>
+                            <li><button data-type="del"><del>S</del></button></li>
+                            <li><button data-type="qoute"><img src="images/quote.svg" alt=""></button></li>
+                            <li><button data-type="link"><img src="images/broken-link.svg" alt=""></button></li>
+                            <li><button data-type="list"><img src="images/list.svg" alt=""></button></li>
+                            <li><button data-type="image"><img src="images/photo.svg" alt=""></button></li>
+                        </ul>
+                    </div>
+                    <textarea name="text" placeholder="Текст карточки" id="textFormatter" class="edit-card-text"></textarea>
+                </div>
+               
+                <div class="group">
+                    <p>Deadline</p>
+                    <input name="date" type="date" placeholder="Текст карточки" class="edit-card-date">
+                </div>       
+                    
+                <button id="createCard">Сохранить изменения</button>
+                <p class="success">Вы успешно отредактировали карточку!</p>
+            </form>
+        </div>
+        
+        <div class="close"></div>
+    </div>
+
+    <div class="viewCard">
+        
+    </div>
+    <script src="js/Card.js"></script>
+    <script src="js/textFormatter.js"></script>
+    <script src="js/cardOperations.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/alerts.js"></script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Proxima Nova Rg';
+    background: #E5EFF1;
+}
+
+.wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+header h1 {
+    margin-bottom: 30px;
+}
+.header {
+   padding: 40px 0;
+   box-sizing: border-box;
+}
+.header__list {
+    display: flex;
+}
+.header__list li {
+    list-style: none;
+    margin-right: 30px;
+    position: relative;
+}
+.header__list li:last-child {
+    margin-right: 0;
+}
+.header__list li a {
+    color: rgb(51, 163, 255);
+}
+.header__list li a.active {
+    background: #000;
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+.header__list li span {
+    position: absolute;
+    top: -2px;
+    right: -10px;
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+}
+.main__options {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    position: relative;
+}
+.main__filter, .removeAll {
+    color: rgb(51, 163, 255);
+}
+.main__filter-list {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    top: 20px;
+    width: fit-content;
+    padding: 15px 0 15px 15px;
+    /* box-shadow: -19px 20px 20px 7px #e5eff1; */
+    background: #e5eff1;
+    /* transition: .5s opacity; */
+}
+.main__filter:hover + .main__filter-list, .main__filter-list:hover  {
+    opacity: 1;
+    z-index: 1;
+}
+.main__filter-list li {
+    list-style:none;
+    text-align: right;
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(36, 36, 36);
+    transition: .3s color;
+}
+.main__filter-list li:hover {
+    color: rgb(51, 163, 255);
+}
+.main__content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 50px 0;
+    box-sizing: border-box;
+}
+/* DISPLAYS*/
+/* DISPLAY TABLE */
+.main__content > .main__item {
+    margin-right: calc((102% - 32%*3) / 3);
+}
+.main__content > .main__item:nth-child(3n) {
+    margin-right: 0;
+}
+/* /DISPLAY TABLE */
+.main__content.display-column  > .main__item {
+    margin-right: 0;
+    width: 100%;
+}
+
+/* /DISPLAYS*/
+.main__item {
+    width: 335px;
+    height: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid rgb(63, 63, 63);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    transition: 1s all;
+    cursor: pointer;
+    position: relative;
+}
+.main__item-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+.main__item .main__item-context {
+    position: absolute;
+    right: -34px;
+    top: 0;
+    height: 100%;
+    background: rgb(63, 63, 63);
+    width: fit-content;
+    transition: .4s ease all;
+}
+.main__item .main__item-context ul{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+.main__item .main__item-context ul li{
+    list-style: none;
+    margin-bottom: 3px;
+    margin-left: 2px;
+}
+.main__item .main__item-context ul li button{
+    background: transparent;
+    padding: 5px 8px 0;
+    margin-bottom: 0;
+    height: fit-content;
+    border: 0;
+    transition: .3s all;
+}
+.main__item .main__item-context ul li button:hover{
+    background: #696969;
+}
+.main__item:hover .main__item-context{
+    right: 0;
+}
+.main__item-group2 {
+    margin-top: auto;
+}
+.main__item-group1, .main__item-group2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.main__item-name {
+    font-size: 24px;
+    word-break: break-word;
+    max-width: 200px;
+}
+.main__item-text {
+    line-height: 23px;
+    margin-bottom: 20px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+.main__item-text:after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #e5eff1;
+    box-shadow: 3px -2px 20px 12px #e5eff1;
+}
+.main__item-postdate {
+    text-align: right;
+    align-self: flex-start;
+}
+.min-sec {
+    font-size: 14px;
+}
+.add-card {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: #e6e6e6;
+    transition: .5s all;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-card h2 , .edit-card h2{
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.add-card.active , .edit-card.active {
+    left: 0;
+}
+.add-card form , .edit-card form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+.add-card form input , textarea, button, .edit-card form input{
+    margin-bottom: 30px;
+    height: 45px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Proxima Nova Rg';
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+}
+#createCard {
+    border: 1px solid #0080004a;
+}
+button {
+    cursor: pointer;
+}
+.add-card textarea, .edit-card textarea {
+    height: 200px;
+    resize: none;
+} 
+.add-card .group , .edit-card .group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.add-card .group input , .edit-card .group input {
+    width: 200px;
+    margin-bottom: 0;
+}
+/* .textarea {
+
+} */
+.textarea__buttons {
+    width: 100%;
+    background: rgb(240, 240, 240);
+}
+.textarea__buttons ul {
+    display: flex;
+}
+.textarea__buttons ul li{
+    list-style: none;
+    width: 36px;
+    height: 36px;
+   
+}
+.textarea__buttons ul li button{
+    padding: 0;
+    height: 100%;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(240, 240, 240);
+    transition: .3s background;
+}
+.textarea__buttons ul li button:hover {
+    background: rgb(216, 216, 216);
+
+}
+.textarea__buttons ul li button img{
+    width: 40%;
+}
+.close {
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/close.svg);
+    background-size: cover;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.displayTipe {
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/grid.svg);
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+.displayTipe.display-column {
+    background-image: url(../images/menu.svg);
+}
+
+.header__list li {
+    display: flex;
+    align-items: center;
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p.success {
+    font-size: 24px;
+    color: green;
+    opacity: 0;
+    transition: 1s opacity;
+    text-align: center;
+}
+
+.main__item.fire {
+    background: rgba(255, 166, 0, 0.144);
+}
+.main__item.fire:after {
+    content: 'Скоро дедлайн!';
+    color: #fff;
+    width: 150px;
+    height: 25px;
+    background: #000;
+    position: absolute;
+    right: -2px;
+    top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+}
+.main__item.normal {
+    /* background: rgba(0, 128, 0, 0.212); */
+}
+.main__item.wasted {
+    background: rgba(255, 0, 0, 0.13);
+}
+.main__item.wasted .main__item-text:after{
+    background: rgb(232, 208, 210);
+    box-shadow: 3px -2px 20px 12px rgb(232, 208, 210);
+}
+
+
+
+.main__item.finished button[data-type=del], .main__item.finished button[data-type=finish],.main__item.finished button[data-type=edit]{
+    display: none;
+} 
+.main__item.removed button[data-type=edit], .main__item.removed button[data-type=finish], .main__item.removed button[data-type=del] {
+    display: none;
+} 
+.main__item.wasted button[data-type=edit], .main__item.wasted button[data-type=finish], .main__item.wasted button[data-type=del] {
+    display: none;
+} 
+
+.main__item.finished {
+    background: #0080001f;
+}
+.main__item.fire .main__item-text:after{
+    background: rgb(233, 228, 206);
+    box-shadow: 3px -2px 20px 12px rgb(233, 228, 206);
+}
+.main__item.finished .main__item-text:after{
+    background: #c9e2d4;
+    box-shadow: 3px -2px 20px 12px #c9e2d4;
+}
+
+.main__item.finished:after {
+    content: '';
+    color: #fff;
+    width: 40px;
+    height: 25px;
+    background-color: #000;
+    background-image: url(../images/success.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: -2px;
+    top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+}
+.display-column .main__item-name {
+    max-width: 90%;
+}
+
+
+.main__item.wasted:after {
+    content: '';
+    color: #fff;
+    width: 40px;
+    height: 25px;
+    background-color: #000;
+    background-image: url(../images/del.png);
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: -2px;
+    top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+}
+
+.viewCard {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgb(232, 232, 232);
+    padding: 50px 0;
+    opacity: 0;
+    transition: 1s opacity;
+    
+}
+.viewCard.active {
+    z-index: 1;
+    opacity: 1;
+    left: 0;
+    transition: 1s opacity;
+
+}
+.viewCard__inner {
+    margin: 0 auto;
+    width: 80%;
+    height: 90vh;
+    border: 3px solid #a4a4a4;
+    background: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.viewCard__name {
+    font-size: 41px;
+    margin-bottom: 30px;
+}
+.viewCard__text {
+    font-size: 20px;
+    margin-bottom: 30px;
+    border-left: 5px solid #000;
+    padding-left: 30px;
+}
+.viewCard__buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.viewCard__buttons .group {
+    width: 49%;
+    display: flex;
+    justify-content: space-between;
+}
+.viewCard__buttons button{
+    background: #000;
+    color: #fff;
+    font-weight: 500;
+}
+#finishCard {
+    width:100%;
+}
+#editCard {
+
+}
+#editCard , #removeCard {
+    width: 48%; 
+}
+.viewCard__dates {
+    margin-bottom: 30px;
+}
+.viewCard__dates p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.edit-card {
+    background: rgb(218, 218, 218);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    transition: .5s all;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.edit-card.active {
+    left: 0;
+}
+
+.notification {
+    position: fixed;
+    top: 200px;
+    left: calc(50% - 150px);
+    background: rgb(0, 0, 0);
+    z-index: 9999;
+    width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+}
+.notification h3 {
+    margin-bottom: 15px;
+    font-weight: 100;
+}
+.notification button {
+    margin-bottom: 0;
+    
+}
+.notification.success {
+    background: #1fa21f;
+}
+.notification.error {
+    background: red;
+}
+.notification > div {
+    display: flex;
+    justify-content: center;
+}
+.notification > div button {
+    width: 49%;
+}
+.btn_ok {
+    margin-right: 4px
+}
