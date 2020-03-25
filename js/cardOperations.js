@@ -172,13 +172,14 @@ const removeAllTasksFromWasted = () => {
     watchIndicators();
     render(wastedData);
 }
+
 const editCard = (card) => {
     const parent_id = +card.getAttribute('data-id');
     buttons = document.querySelectorAll('.main__item-context button');
     contextCardMenu();
     const editElementWrapper = document.querySelector('.edit-card');
     const editElement = data.find(element => {
-        element.id === parent_id;
+        return element.id === parent_id;
     });
 
 
@@ -222,7 +223,6 @@ const editCard = (card) => {
     });
 
     editElementWrapper.classList.add('active');
-
 
 
     document.querySelector('.edit-card .close').onclick = function () {
