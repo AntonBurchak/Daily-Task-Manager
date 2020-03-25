@@ -91,7 +91,7 @@
         padding: 20px 0;
     }
 }
-@media(max-width: 350px) {
+@media(max-width: 380px) {
     .add-card textarea, .edit-card textarea {
         height: 150px;
     }
