@@ -29,6 +29,9 @@
     .displayTipe  {
         display: none;
     }
+    .header__list li a {
+        padding: 5px;
+    }
     .header__list li a img {
         display: block;
         width: 40px;
