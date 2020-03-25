@@ -1,0 +1,114 @@
+@media(max-width: 900px) {
+    .viewCard__buttons {
+        flex-direction: column-reverse;
+    }
+    .viewCard__buttons .group {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .viewCard__buttons .group button{
+        margin-bottom: 0;
+    }
+}
+@media(max-width: 735px) {
+    .add-card form, .edit-card form {
+        width: 100%;
+    }
+    .viewCard__name {
+        word-break: break-all;
+    }
+    .viewCard__inner {
+        width: 100%;
+        margin: 0;
+    }
+    .viewCard {
+        padding: 100px 0 0 0;
+    }
+}
+@media(max-width: 550px) {
+    .displayTipe  {
+        display: none;
+    }
+    .header__list li a img {
+        display: block;
+        width: 40px;
+    }
+    .header__list li a div {
+        display: none;
+    }
+}
+@media(max-width: 550px) {
+    body {
+        font-size: 14px;
+    }
+    .header__list {
+        width: 100%;
+        justify-content: space-around;
+    }
+    .header__list li {
+        margin-right: 0;
+    }
+    .textarea__buttons ul {
+        flex-wrap: wrap;
+    }
+    
+}
+@media(max-width: 420px) {
+    .viewCard__buttons .group {
+        flex-direction: column;
+    }
+    .viewCard__buttons .group button{
+        width: 100% !important;
+    }
+    .viewCard__buttons .group button:nth-child(1){
+        margin-bottom: 10px;
+    }
+    .viewCard__name {
+        font-size: 23px;
+        margin-bottom: 30px;
+    }
+    .viewCard__text, .viewCard__dates p, .viewCard__buttons .group button {
+        font-size: 16px;
+    }
+    
+}
+@media(max-width: 400px) {
+    .notification {
+        width: 100%;
+        left: 0;
+    }
+    .main__item {
+        width: 100%;
+        margin-right: 0 !important;
+    }
+    .main__content {
+        padding: 20px 0;
+    }
+}
+@media(max-width: 350px) {
+    .add-card textarea, .edit-card textarea {
+        height: 150px;
+    }
+    .add-card h2, .edit-card h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    .add-card form input, textarea, button, .edit-card form input {
+        margin-bottom: 20px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .add-card {
+        justify-content: flex-end;
+    }
+    .add-card .success {
+        position: absolute;
+    }
+    .close {
+        top: 20px;
+        right: 20px;
+    }
+    .viewCard {
+        padding: 75px 0 0 0;
+    }
+}

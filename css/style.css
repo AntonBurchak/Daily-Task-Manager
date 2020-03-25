@@ -221,6 +221,7 @@ header h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 99999;
 }
 .add-card h2 , .edit-card h2{
     font-size: 32px;
@@ -529,9 +530,9 @@ p.success {
 .notification {
     position: fixed;
     top: 200px;
-    left: calc(50% - 150px);
+    left: calc(50% - 200px);
     background: rgb(0, 0, 0);
-    z-index: 9999;
+    z-index: 9999999;
     width: 400px;
     padding: 20px;
     box-sizing: border-box;
@@ -565,3 +566,7 @@ p.success {
 .body-finished .viewCard .viewCard__buttons , .body-wasted .viewCard .viewCard__buttons , .body-removed .viewCard .viewCard__buttons {
     display: none;
 }
+.header__list li a img {
+    display: none;
+}
+@import '@media.css'

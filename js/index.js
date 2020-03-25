@@ -35,7 +35,9 @@ const createCard = (form) => {
     } else {
         card = new Card(...cardInfo);
         card.send();
-        document.querySelector('.success').style.opacity = '1';
+        const b = new Alert('success', 'Вы успешно добавили карточку!');
+
+        // document.querySelector('.success').style.opacity = '1';
     }
 };
 
