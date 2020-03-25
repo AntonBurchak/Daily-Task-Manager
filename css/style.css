@@ -573,4 +573,8 @@ p.success {
 .main__item.fire-today:after {
     content: 'Сегодня дедлайн!'
 }
-@import '@media.css'
+
+.edit-card p.success {
+    display: none;
+}
+
