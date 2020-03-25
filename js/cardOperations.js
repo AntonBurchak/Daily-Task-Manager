@@ -32,17 +32,19 @@ data.forEach(element => {
 
         if ((deadline.getTime() - now.getTime()) <= 1440 * 60000 && (deadline.getTime() - now.getTime()) > 0) {
             element.status = 'fire';
+        } else if ((deadline.getTime() - now.getTime()) <= 1440 * 60000){
+            element.status = 'fire fire-today';
         } else if (deadline.getTime() - now.getTime() > 0) {
             element.status = 'normal';
-        } else if (deadline.getTime() - now.getTime() < 0) {
+        } else if (deadline.getTime() - now.getTime() + 1440 * 60000 < 0) {
             element.status = 'wasted';
             wastedData.push(element);
             indicators.wasted++;
             localStorage.setItem('wastedData', JSON.stringify(wastedData));
 
-            let tmp = data;
-            data = tmp.filter(card => {
-                return +card.id !== +element.id;
+            // let tmp = data;
+            data = data.filter(card => {
+                +card.id !== +element.id;
             });
             localStorage.setItem('cards', JSON.stringify(data));
         }
@@ -56,12 +58,12 @@ const deleteCard = (element) => {
 
     buttons = document.querySelectorAll('.main__item-context button');
     contextCardMenu();
-    let tmp = data;
+    // let tmp = data;
 
     const removed = data.find(el => el.id == +element.getAttribute('data-id'));
 
 
-    data = tmp.filter(card => {
+    data = data.filter(card => {
         return +card.id !== +element.getAttribute('data-id');
     });
     removed.status = 'removed';
@@ -156,15 +158,27 @@ const removeAllTasksFromRemoved = () => {
     watchIndicators();
     render(removedData);
 }
-
-
+const removeAllTasksFromFinished = () => {
+    finishedData = [];
+    localStorage.setItem('finishedData', JSON.stringify(finishedData));
+    indicators.finished = 0;
+    watchIndicators();
+    render(finishedData);
+}
+const removeAllTasksFromWasted = () => {
+    wastedData = [];
+    localStorage.setItem('wastedData', JSON.stringify(wastedData));
+    indicators.wasted = 0;
+    watchIndicators();
+    render(wastedData);
+}
 const editCard = (card) => {
     const parent_id = +card.getAttribute('data-id');
     buttons = document.querySelectorAll('.main__item-context button');
     contextCardMenu();
     const editElementWrapper = document.querySelector('.edit-card');
     const editElement = data.find(element => {
-        return element.id === parent_id;
+        element.id === parent_id;
     });
 
 

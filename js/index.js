@@ -25,8 +25,8 @@ const createCard = (form) => {
     if (
         (cardInfo[0].length === 0 || cardInfo[0].trim() === '') ||
         (cardInfo[3].length === 0 || cardInfo[3].trim() === '') ||
-        (cardInfo[4].length === 0 || cardInfo[4].trim() === '') ||
-        (deadline.getTime() - now.getTime() < 0)
+        (cardInfo[4].length === 0 || cardInfo[4].trim() === '') //||
+       // (deadline.getTime() - now.getTime() < 0)
     ) {
 
         const a = new Alert('error', 'Invalid values in inputs OR invalid deadline date');
@@ -35,9 +35,15 @@ const createCard = (form) => {
     } else {
         card = new Card(...cardInfo);
         card.send();
-        const b = new Alert('success', 'Вы успешно добавили карточку!');
 
-        // document.querySelector('.success').style.opacity = '1';
+
+        
+        const b = new Alert('success', 'Вы успешно добавили карточку!');
+        
+        form.querySelectorAll('input , textarea').forEach(el => {
+            el.value = '';
+        });
+        document.querySelector('.add-card').classList.remove('active');
     }
 };
 
@@ -277,9 +283,17 @@ function controller() {
     localStorage.setItem('url', link);
     changeDisplay();
     if (link.indexOf('/feed/finished') !== -1) {
+        document.querySelector('.removeAll').addEventListener('click', (e) => {
+            e.preventDefault();
+            removeAllTasksFromFinished();
+        });
         return render(finishedData);
     }
     else if (link.indexOf('/feed/wasted') !== -1) {
+        document.querySelector('.removeAll').addEventListener('click', (e) => {
+            e.preventDefault();
+            removeAllTasksFromWasted();
+        });
         return render(wastedData)
     }
     else if (link.indexOf('/feed/removed') !== -1) {

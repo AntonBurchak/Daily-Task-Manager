@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../fonts/stylesheet.css">
+    <link rel="stylesheet" href="../../css/@media.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../../fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../fav/favicon-16x16.png">
@@ -22,10 +23,10 @@
             <nav class="header__nav">
                 <ul class="header__list">
                     <li style="display: none;"><a href="../../" class="add" >Добавить</a></li>
-                    <li><a href="../../">Главная</a></li>
-                    <li><a href="../../feed/finished/" class="finished active">Завершенные</a><span>0</span></li>
-                    <li><a href="../../feed/wasted/" class="wasted">Просроченые</a><span>0</span></li>
-                    <li><a href="../../feed/removed/" class="removed">Удаленные</a><span>0</span></li>
+                    <li><a href="../../"><div>Главная</div><img src="../../images/plus.svg" alt=""></a></a></li>
+                    <li><a href="../../feed/finished/" class="finished active"><div>Завершенные</div><img src="../../images/check.svg" alt=""></a><span>0</span></li>
+                    <li><a href="../../feed/wasted/" class="wasted"><div>Просроченые</div><img src="../../images/clock.svg" alt=""></a><span>0</span></li>
+                    <li><a href="../../feed/removed/" class="removed"><div>Удаленные</div><img src="../../images/rubbish.svg" alt=""></a><span>0</span></li>
                 </ul>
                 <div class="displayTipe"></div>
             </nav>
@@ -33,6 +34,9 @@
     </header>
     <main class="main">
         <div class="wrapper">
+            <div class="main__options">
+                <a href="" class="removeAll">Удалить всё</a>
+            </div>
             <div class="main__content">
                 <div class="loader">
                     <img src="https://media1.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif" alt="" width="100">

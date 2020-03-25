@@ -36,6 +36,9 @@
     .header__list li a div {
         display: none;
     }
+    .header__list li a.active {
+        background: #e1e1e1;
+    }
 }
 @media(max-width: 550px) {
     body {

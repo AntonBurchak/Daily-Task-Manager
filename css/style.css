@@ -569,4 +569,8 @@ p.success {
 .header__list li a img {
     display: none;
 }
+
+.main__item.fire-today:after {
+    content: 'Сегодня дедлайн!'
+}
 @import '@media.css'
