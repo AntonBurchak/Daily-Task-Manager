@@ -36,7 +36,7 @@ data.forEach(element => {
             element.status = 'fire fire-today';
         } else if (deadline.getTime() - now.getTime() > 0) {
             element.status = 'normal';
-        } else if (deadline.getTime() - now.getTime() + 1440 * 60000 < 0) {
+        } else if (deadline.getTime() - now.getTime() < 0) {
             element.status = 'wasted';
             wastedData.push(element);
             indicators.wasted++;
