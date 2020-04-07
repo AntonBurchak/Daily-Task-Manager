@@ -32,8 +32,6 @@ data.forEach(element => {
 
         if ((deadline.getTime() - now.getTime()) <= 1440 * 60000 && (deadline.getTime() - now.getTime()) > 0) {
             element.status = 'fire';
-        } else if ((deadline.getTime() - now.getTime()) <= 1440 * 60000){
-            element.status = 'fire fire-today';
         } else if (deadline.getTime() - now.getTime() > 0) {
             element.status = 'normal';
         } else if (deadline.getTime() - now.getTime() < 0) {
